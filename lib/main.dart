@@ -53,11 +53,18 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '$_counter',
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.primary,
-                fontSize: 100,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CircleAvatar(
+                maxRadius: MediaQuery.of(context).size.width / 3.5,
+                child: Text(
+                  '$_counter',
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 150,
+                    fontFamily: 'Anta',
+                  ),
+                ),
               ),
             ),
           ],
