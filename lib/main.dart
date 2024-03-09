@@ -60,14 +60,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 const Text(
                   'Você apertou o botão tantas vezes: ',
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    '$_counter',
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 50,                    
-                    ),
+                Text(
+                  '$_counter',
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 50,                    
                   ),
                 ),
               ],
