@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -52,9 +53,19 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'Você apertou o botão tantas vezes: ',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CircleAvatar(
+                maxRadius: MediaQuery.of(context).size.width / 3.5,
+                child: Text(
+                  '$_counter',
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 150,
+                    fontFamily: 'Anta',
+                  ),
+                ),
+              ),
             ),
           ],
         ),
