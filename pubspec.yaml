@@ -58,6 +58,10 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+
+  assets:
+    - assets/images/bongo-cat-button.gif
+    
   fonts:
     - family: Anta
       fonts:
