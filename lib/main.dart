@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Image.asset('assets/images/bongo-cat-button.gif'),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 const Text(
                   'Você apertou o botão tantas vezes: ',
