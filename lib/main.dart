@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -58,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 const Text(
-                  'Você apertou o botão tantas vezes: ',
+                  'Você apertou o botão tantas vezes: ',  style: TextStyle(fontSize:23,color:Color.fromARGB(255, 235, 66, 66)),
                 ),
                 Text(
                   '$_counter',
