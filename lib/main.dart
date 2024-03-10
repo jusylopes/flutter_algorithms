@@ -11,10 +11,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Team 5',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.tealAccent.shade700),
         useMaterial3: true,
+        fontFamily: 'Anta',
       ),
       home: const MyHomePage(title: 'Team 5'),
     );
@@ -43,29 +44,30 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: Text(widget.title),
+        backgroundColor: Colors.tealAccent.shade700,
+        title: Text(widget.title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30,)),
+        
       ),
       body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            const Text(
-              'Você apertou o botão tantas vezes: ',
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CircleAvatar(
-                maxRadius: MediaQuery.of(context).size.width / 3.5,
-                child: Text(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          
+          children: [
+            Image.asset('assets/images/bongo-cat-button.gif'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                const Text(
+                  'Você apertou o botão tantas vezes: ',
+                ),
+                Text(
                   '$_counter',
                   style: const TextStyle(
                     color: Colors.black,
-                    fontSize: 150,
-                    fontFamily: 'Anta',
+                    fontSize: 50,                    
                   ),
                 ),
-              ),
+              ],
             ),
           ],
         ),
