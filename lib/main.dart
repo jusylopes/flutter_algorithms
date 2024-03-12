@@ -11,9 +11,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Team 5',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.tealAccent.shade700),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Colors.tealAccent.shade700),
         useMaterial3: true,
         fontFamily: 'Anta',
       ),
@@ -45,37 +45,68 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.tealAccent.shade700,
-        title: Text(widget.title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30,)),
-        
+        title: Text(widget.title,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 30,
+            )),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          
-          children: [
-            Image.asset('assets/images/bongo-cat-button.gif'),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                const Text(
-                  'Você apertou o botão tantas vezes: ',
-                ),
-                Text(
-                  '$_counter',
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 50,                    
-                  ),
-                ),
-              ],
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Image.asset('assets/images/bongo-cat-button.gif'),
+            ),
+            ButtonCalculate(callChallenge: _incrementCounter),
+            const SizedBox(height: 20),
+            const Text(
+              'Resultado:',
+            ),
+            Text(
+              '$_counter',
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 20,
+              ),
+            ),
+            const SizedBox(
+              height: 25,
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add_reaction_outlined),
+    );
+  }
+}
+
+class ButtonCalculate extends StatelessWidget {
+  final Function() callChallenge;
+  const ButtonCalculate({
+    super.key,
+    required this.callChallenge,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Container(
+        width: double.infinity,
+        height: 50,
+        margin: const EdgeInsets.all(15),
+        child: ElevatedButton(
+          onPressed: callChallenge,
+          child: const Text(
+            'calcular',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
       ),
     );
   }
