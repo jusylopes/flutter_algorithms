@@ -74,9 +74,10 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             const SizedBox(height: 20),
-            const Text(
-              'Resultado:',
-            ),
+            if (_result.isNotEmpty)
+              const Text(
+                'Resultado:',
+              ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
