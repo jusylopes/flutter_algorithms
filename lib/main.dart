@@ -59,20 +59,22 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.all(12.0),
               child: Image.asset('assets/images/bongo-cat-button.gif'),
             ),
+            ButtonCalculate(callChallenge: _incrementCounter),
+            const SizedBox(height: 20),
             const Text(
-              'Resultado: ',
+              'Resultado:',
             ),
             Text(
               '$_counter',
+              textAlign: TextAlign.center,
               style: const TextStyle(
                 color: Colors.black,
-                fontSize: 24,
+                fontSize: 20,
               ),
             ),
             const SizedBox(
               height: 25,
             ),
-            ButtonCalculate(onPressed: _incrementCounter),
           ],
         ),
       ),
@@ -81,10 +83,10 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class ButtonCalculate extends StatelessWidget {
-  final void Function() onPressed;
+  final Function() callChallenge;
   const ButtonCalculate({
     super.key,
-    required this.onPressed,
+    required this.callChallenge,
   });
 
   @override
@@ -96,7 +98,7 @@ class ButtonCalculate extends StatelessWidget {
         height: 50,
         margin: const EdgeInsets.all(15),
         child: ElevatedButton(
-          onPressed: onPressed,
+          onPressed: callChallenge,
           child: const Text(
             'calcular',
             style: TextStyle(
