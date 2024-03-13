@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Team 5',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.tealAccent.shade700),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Colors.tealAccent.shade700),
         useMaterial3: true,
         fontFamily: 'Anta',
       ),
@@ -33,10 +34,20 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String _result = '';
 
   void _incrementCounter() {
     setState(() {
       _counter++;
+    });
+  }
+
+  void _desafio4(int number) {
+    String evenOrOdd = number % 2 == 0 ? 'par' : 'ímpar';
+    String positiveOrNegative = number > 0 ? 'positivo' : 'negativo';
+
+    setState(() {
+      _result = '$number é $evenOrOdd e $positiveOrNegative';
     });
   }
 
@@ -45,13 +56,15 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.tealAccent.shade700,
-        title: Text(widget.title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30,)),
-        
+        title: Text(widget.title,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 30,
+            )),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          
           children: [
             Image.asset('assets/images/bongo-cat-button.gif'),
             Row(
@@ -64,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   '$_counter',
                   style: const TextStyle(
                     color: Colors.black,
-                    fontSize: 50,                    
+                    fontSize: 50,
                   ),
                 ),
               ],
