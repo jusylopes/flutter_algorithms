@@ -42,6 +42,14 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _desafio2(int valueA, int valueB, int valueC) {
+    int sum = valueA + valueB;
+    setState(() {
+      _result =
+          '${sum > valueC ? 'A soma é maior que C' : 'A soma não é maior que C'} e o resultado é ${sum.toString()}';
+    });
+  }
+
   void _desafio4(int number) {
     String evenOrOdd = number % 2 == 0 ? 'par' : 'ímpar';
     String positiveOrNegative = number > 0 ? 'positivo' : 'negativo';
@@ -65,30 +73,67 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset('assets/images/bongo-cat-button.gif'),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                const Text(
-                  'Você apertou o botão tantas vezes: ',
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Image.asset('assets/images/bongo-cat-button.gif'),
+            ),
+            ButtonCalculate(
+              callChallenge: () {
+                _desafio2(2, 5, 10);
+              },
+            ),
+            const SizedBox(height: 20),
+            if (_result.isNotEmpty)
+              const Text(
+                'Resultado:',
+              ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                _result,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
                 ),
-                Text(
-                  '$_counter',
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 50,
-                  ),
-                ),
-              ],
+              ),
+            ),
+            const SizedBox(
+              height: 25,
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add_reaction_outlined),
+    );
+  }
+}
+
+class ButtonCalculate extends StatelessWidget {
+  final Function() callChallenge;
+  const ButtonCalculate({
+    super.key,
+    required this.callChallenge,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Container(
+        width: double.infinity,
+        height: 50,
+        margin: const EdgeInsets.all(15),
+        child: ElevatedButton(
+          onPressed: callChallenge,
+          child: const Text(
+            'calcular',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
       ),
     );
   }
