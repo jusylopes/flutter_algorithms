@@ -33,10 +33,19 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String _result = '';
 
   void _incrementCounter() {
     setState(() {
       _counter++;
+    });
+  }
+
+  void _desafio2(int valueA, int valueB, int valueC) {
+    int sum = valueA + valueB;
+    setState(() {
+      _result =
+          '${sum > valueC ? 'A soma é maior que C' : 'A soma não é maior que C'} e o resultado é ${sum.toString()}';
     });
   }
 
@@ -59,17 +68,25 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.all(12.0),
               child: Image.asset('assets/images/bongo-cat-button.gif'),
             ),
-            ButtonCalculate(callChallenge: _incrementCounter),
-            const SizedBox(height: 20),
-            const Text(
-              'Resultado:',
+            ButtonCalculate(
+              callChallenge: () {
+                _desafio2(2, 5, 10);
+              },
             ),
-            Text(
-              '$_counter',
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 20,
+            const SizedBox(height: 20),
+            if (_result.isNotEmpty)
+              const Text(
+                'Resultado:',
+              ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                _result,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                ),
               ),
             ),
             const SizedBox(
