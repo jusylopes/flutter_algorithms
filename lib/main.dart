@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: 'Team 5',
       theme: ThemeData(
         colorScheme:
             ColorScheme.fromSeed(seedColor: Colors.tealAccent.shade700),
@@ -34,6 +35,16 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String _result = '';
+  String? _nameChallenge;
+
+  final List<DropdownMenuItem<String>> _challengesList =
+      List.generate(18, (index) {
+    final desafioNumber = index + 1;
+    return DropdownMenuItem<String>(
+      value: 'desafio$desafioNumber',
+      child: Text('Desafio $desafioNumber'),
+    );
+  });
 
   void _incrementCounter() {
     setState(() {
@@ -41,11 +52,46 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void callChallenge() {
+    //mapeando os desafios
+    Map<String, Function> challengeFunctions = {
+      'desafio1': () => '', //chame o seu desafio
+      'desafio2': () => _desafio2(2, 3, 4),
+      'desafio3': () => '',// chame seu desafio
+      'desafio4': () => _desafio4(2),
+      'desafio5': () => '',// chame seu desafio
+      'desafio6': () => '',// chame seu desafio
+      'desafio7': () => '',// chame seu desafio
+      'desafio8': () => '', // chame seu desafio
+      'desafio9': () => '',// chame seu desafio
+      'desafio10': () => '',// chame seu desafio
+      'desafio11': () => '',// chame seu desafio
+      'desafio12': () => '',// chame seu desafio
+      'desafio13': () => '',// chame seu desafio
+      'desafio14': () => '',// chame seu desafio
+    };
+
+    if (challengeFunctions.containsKey(_nameChallenge)) {
+      // se o desafio selecionado tá mapeado
+      challengeFunctions[
+          _nameChallenge]!(); // chama o método correspondente ao desafio selecionado
+    }
+  }
+
   void _desafio2(int valueA, int valueB, int valueC) {
     int sum = valueA + valueB;
     setState(() {
       _result =
           'A soma de $valueA + $valueB é $sum, esse número ${sum > valueC ? 'é maior que' : 'não é maior que'} $valueC';
+    });
+  }
+
+  void _desafio4(int number) {
+    String evenOrOdd = number % 2 == 0 ? 'par' : 'ímpar';
+    String positiveOrNegative = number > 0 ? 'positivo' : 'negativo';
+
+    setState(() {
+      _result = '$number é $evenOrOdd e $positiveOrNegative';
     });
   }
 
@@ -68,9 +114,21 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.all(12.0),
               child: Image.asset('assets/images/bongo-cat-button.gif'),
             ),
+            DropdownButton<String>(
+              hint: const Text(
+                'Escolha um desafio',
+              ),
+              value: _nameChallenge,
+              items: _challengesList,
+              onChanged: (String? value) {
+                setState(() {
+                  _nameChallenge = value;
+                });
+              },
+            ),
             ButtonCalculate(
               callChallenge: () {
-                _desafio2(2, 5, 10);
+                callChallenge(); // funçao q chama todos os desafios
               },
             ),
             const SizedBox(height: 20),
