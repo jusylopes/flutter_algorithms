@@ -44,8 +44,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        backgroundColor: Colors.tealAccent.shade700,
+        title: Text(widget.title,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 30,
+            )),
       ),
       body: Center(
         child: Column(
@@ -105,6 +109,5 @@ class ButtonCalculate extends StatelessWidget {
         ),
       ),
     );
-    
   }
 }
