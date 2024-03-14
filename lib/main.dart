@@ -35,9 +35,9 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String _result = '';
 
-  void _incrementCounter() {
+ void _incrementCounter() {
     setState(() {
-      _counter++;
+    _counter++;
     });
   }
 
@@ -48,7 +48,18 @@ class _MyHomePageState extends State<MyHomePage> {
           '${sum > valueC ? 'A soma é maior que C' : 'A soma não é maior que C'} e o resultado é ${sum.toString()}';
     });
   }
-
+  void _desafio5(int a, int b) {
+   int result;
+  if (a == b) {
+    result = a + b;
+  } else {
+    result = a * b;
+    setState(() {
+      _result = 'Se os valores forem iguais o valor da soma é: ${result = a + b} : e Se os valores forem diferenes o valor da multiplicação é ${result = a * b}'; 
+    
+  });
+  }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +81,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ButtonCalculate(
               callChallenge: () {
-                _desafio2(2, 5, 10);
+                //_desafio2(2, 5, 10);
+               _desafio5(10, 5);
               },
             ),
             const SizedBox(height: 20),
