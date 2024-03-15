@@ -49,6 +49,16 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _desafio12(List<int> numbers) {
+    List<int> square = [];
+    for (int number in numbers) {
+      square.add(number * number);
+    }
+    setState(() {
+      _result = 'entrada = $numbers \n saída = $square';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +80,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ButtonCalculate(
               callChallenge: () {
-                _desafio2(2, 5, 10);
+               // _desafio2(2, 5, 10);
+               _desafio12([2,4,6]);
               },
             ),
             const SizedBox(height: 20),
