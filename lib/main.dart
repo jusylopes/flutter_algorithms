@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String? _nameChallenge;
 
   final List<DropdownMenuItem<String>> _challengeList =
-      List.generate(18, (index) {
+      List.generate(19, (index) {
     final desafioNumber = index + 1;
     return DropdownMenuItem<String>(
       value: 'desafio$desafioNumber',
@@ -68,6 +68,11 @@ class _MyHomePageState extends State<MyHomePage> {
       'desafio12': () => '',
       'desafio13': () => '',
       'desafio14': () => '',
+      'desafio15': () => '',
+      'desafio16': () => '',
+      'desafio17': () => '',
+      'desafio18': () => '',
+      'desafio19': () => '',
     };
 
     if (challengeFunctions.containsKey(_nameChallenge)) {
