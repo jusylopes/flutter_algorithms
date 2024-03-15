@@ -49,6 +49,18 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _desafio10(String name, int idade) {
+    String result = '';
+    if (idade >= 18) {
+      result = 'é maior';
+    } else {
+      result = 'é menor';
+    }
+    setState(() {
+      _result = '$name você $result de idade';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ButtonCalculate(
               callChallenge: () {
-                _desafio2(2, 5, 10);
+                //_desafio2(2, 5, 10);
+                _desafio10('Vinicius', 31);
               },
             ),
             const SizedBox(height: 20),
