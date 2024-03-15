@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String _result = '';
   String? _nameChallenge;
 
-  final List<DropdownMenuItem<String>> _challengesList =
+  final List<DropdownMenuItem<String>> _challengeList =
       List.generate(18, (index) {
     final desafioNumber = index + 1;
     return DropdownMenuItem<String>(
@@ -53,28 +53,25 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void callChallenge() {
-    //mapeando os desafios
     Map<String, Function> challengeFunctions = {
-      'desafio1': () => '', //chame o seu desafio
+      'desafio1': () => '',
       'desafio2': () => _desafio2(2, 3, 4),
-      'desafio3': () => '',// chame seu desafio
+      'desafio3': () => '',
       'desafio4': () => _desafio4(2),
-      'desafio5': () => '',// chame seu desafio
-      'desafio6': () => '',// chame seu desafio
-      'desafio7': () => '',// chame seu desafio
-      'desafio8': () => '', // chame seu desafio
-      'desafio9': () => '',// chame seu desafio
-      'desafio10': () => '',// chame seu desafio
-      'desafio11': () => '',// chame seu desafio
-      'desafio12': () => '',// chame seu desafio
-      'desafio13': () => '',// chame seu desafio
-      'desafio14': () => '',// chame seu desafio
+      'desafio5': () => '',
+      'desafio6': () => '',
+      'desafio7': () => '',
+      'desafio8': () => '',
+      'desafio9': () => '',
+      'desafio10': () => '',
+      'desafio11': () => '',
+      'desafio12': () => '',
+      'desafio13': () => '',
+      'desafio14': () => '',
     };
 
     if (challengeFunctions.containsKey(_nameChallenge)) {
-      // se o desafio selecionado tá mapeado
-      challengeFunctions[
-          _nameChallenge]!(); // chama o método correspondente ao desafio selecionado
+      challengeFunctions[_nameChallenge]!();
     }
   }
 
@@ -119,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 'Escolha um desafio',
               ),
               value: _nameChallenge,
-              items: _challengesList,
+              items: _challengeList,
               onChanged: (String? value) {
                 setState(() {
                   _nameChallenge = value;
@@ -128,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ButtonCalculate(
               callChallenge: () {
-                callChallenge(); // funçao q chama todos os desafios
+                callChallenge();
               },
             ),
             const SizedBox(height: 20),
