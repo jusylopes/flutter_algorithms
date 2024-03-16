@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
     int sum = valueA + valueB;
     setState(() {
       _result =
-          '${sum > valueC ? 'A soma é maior que C' : 'A soma não é maior que C'} e o resultado é ${sum.toString()}';
+          'A soma de $valueA + $valueB é $sum, esse número ${sum > valueC ? 'é maior que' : 'não é maior que'} $valueC';
     });
   }
 
