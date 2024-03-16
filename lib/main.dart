@@ -50,9 +50,8 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-void _desafio3() {
+void _desafio3() {int fatorial}
     int result = 1;
-    int fatorial = 5;
 
     for (int i = 1; i <= fatorial; i++) {
       result *= i;
