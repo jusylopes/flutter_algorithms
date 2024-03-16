@@ -59,6 +59,16 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _desafio16(String text) {
+    String textReversed = text.split('').reversed.join('');
+    bool isPalindrom = text.toLowerCase() == textReversed.toLowerCase();
+
+    setState(() {
+      _result =
+          '$text | $textReversed - ${isPalindrom ? 'é um palíndromo' : 'não é um palíndromo'}';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,7 +91,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ButtonCalculate(
               callChallenge: () {
                 // _desafio2(2, 5, 10);
-                _desafio4(-7);
+                //_desafio4(-7);
+                _desafio16('Arara');
               },
             ),
             const SizedBox(height: 20),
