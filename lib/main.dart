@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
 //Crie uma função que inicialize dois valores inteiros (A e B). Como resultado, mostre na tela qual é o maior valor
-  void _desafio1(int valueA, int valueB) {
+  void _desafio1() {
     int valueA = 800;
     int valueB = 1600;
 
