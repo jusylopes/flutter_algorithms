@@ -50,6 +50,19 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+void _desafio3() {
+    int result = 1;
+    int fatorial = 5;
+
+    for (int i = 1; i <= fatorial; i++) {
+      result *= i;
+    }
+
+    setState(() {
+      _result = 'O resultado fatorial de $fatorial! é $result.';
+    });
+  }
+
   void _desafio4(int number) {
     String evenOrOdd = number % 2 == 0 ? 'par' : 'ímpar';
     String positiveOrNegative = number > 0 ? 'positivo' : 'negativo';
