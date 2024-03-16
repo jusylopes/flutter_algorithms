@@ -59,6 +59,19 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+   void _desafio8(valueA, valueB, valueC) {//resolução do desafio 8
+
+    List<int> listNumber = [valueA, valueB, valueC];
+
+    String list = 'A lista de números é: $listNumber ';
+    listNumber.sort((a,b) => -a.compareTo(b));
+    String descending = 'e a ordem decrescente da lista fica: $listNumber';
+
+    setState(() {
+      _result = list.toString() + descending.toString();
+    });  
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,7 +94,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ButtonCalculate(
               callChallenge: () {
                 // _desafio2(2, 5, 10);
-                _desafio4(-7);
+                //_desafio4(-7);
+                _desafio8(57,7,99);
               },
             ),
             const SizedBox(height: 20),
