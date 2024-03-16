@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: 'Team 5',
       theme: ThemeData(
         colorScheme:
             ColorScheme.fromSeed(seedColor: Colors.tealAccent.shade700),
@@ -49,6 +50,15 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _desafio4(int number) {
+    String evenOrOdd = number % 2 == 0 ? 'par' : 'ímpar';
+    String positiveOrNegative = number > 0 ? 'positivo' : 'negativo';
+
+    setState(() {
+      _result = '$number é $evenOrOdd e $positiveOrNegative';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +80,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ButtonCalculate(
               callChallenge: () {
-                _desafio2(2, 5, 10);
+                // _desafio2(2, 5, 10);
+                _desafio4(-7);
               },
             ),
             const SizedBox(height: 20),
