@@ -59,6 +59,16 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _desafio11(int number) {
+    List<int> table = [];
+    for (int contador = 1; contador <= 10; contador++) {
+      table.add(number * contador);
+    }
+    setState(() {
+      _result = table.join(', ');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,7 +91,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ButtonCalculate(
               callChallenge: () {
                 // _desafio2(2, 5, 10);
-                _desafio4(-7);
+                //_desafio4(-7);
+                _desafio11(5);
               },
             ),
             const SizedBox(height: 20),
