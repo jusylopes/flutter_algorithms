@@ -49,6 +49,22 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _desafio14(List<int> numbers) {
+    int menor = numbers[0];
+    int maior = numbers[0];
+
+    for (int i = 1; i < numbers.length; i++) {
+        if (numbers[i] < menor) {
+        menor = numbers[i];}
+        if (numbers[i] > maior) {
+        maior = numbers[i];
+      }
+    }
+    setState(() {
+      _result = 'Entrada: $numbers maior numero é $maior, o numero menor é $menor ';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ButtonCalculate(
               callChallenge: () {
-                _desafio2(2, 5, 10);
+                //_desafio2(2, 5, 10);
+                _desafio14([2,3,4,5,6,7,8,9,10,15]);
               },
             ),
             const SizedBox(height: 20),
