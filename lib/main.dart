@@ -50,6 +50,24 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _desafio14(List<int> numbers) {
+    int menor = numbers[0];
+    int maior = numbers[0];
+
+    for (int i = 1; i < numbers.length; i++) {
+      if (numbers[i] < menor) {
+        menor = numbers[i];
+      }
+      if (numbers[i] > maior) {
+        maior = numbers[i];
+      }
+    }
+    setState(() {
+      _result =
+          'Entrada: $numbers maior numero é $maior, o numero menor é $menor ';
+    });
+  }
+
   void _desafio4(int number) {
     String evenOrOdd = number % 2 == 0 ? 'par' : 'ímpar';
     String positiveOrNegative = number > 0 ? 'positivo' : 'negativo';
@@ -59,9 +77,45 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _desafio8(valueA, valueB, valueC) {
-    //resolução do desafio 8
+  void _desafio06(int numero) {
+    int antecessor = numero - 1;
+    int sucessor = numero + 1;
 
+    setState(() {
+      _result =
+          'O antecessor de $numero é $antecessor, e o sucessor é $sucessor.';
+    });
+  }
+
+  void _desafio16(String text) {
+    String textReversed = text.split('').reversed.join('');
+    bool isPalindrom = text.toLowerCase() == textReversed.toLowerCase();
+
+    setState(() {
+      _result =
+          '$text | $textReversed - ${isPalindrom ? 'é um palíndromo' : 'não é um palíndromo'}';
+    });
+  }
+
+  void _desafio11(int number) async {
+    List<int> table = [];
+    for (int contador = 1; contador <= 10; contador++) {
+      table.add(number * contador);
+    }
+    setState(() {
+      _result = table.join(', ');
+    });
+  }
+
+  void _desafio7(double userSalary, double minimumSalary) {
+    double salaryMultiplier = userSalary / minimumSalary;
+    setState(() {
+      _result =
+          'O usuário recebe um salário igual a ${salaryMultiplier.toStringAsFixed(2)} vezes o salário mínimo.';
+    });
+  }
+
+  void _desafio8(valueA, valueB, valueC) {
     List<int> listNumber = [valueA, valueB, valueC];
 
     String list = 'A lista de números é: $listNumber ';
@@ -88,6 +142,16 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _desafio15(int valueA) {
+    List<int> numbers = [];
+    for (int i = 0; i <= valueA; i++) {
+      numbers.add(i);
+    }
+    setState(() {
+      _result = numbers.toString();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,10 +173,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ButtonCalculate(
               callChallenge: () {
-                // _desafio2(2, 5, 10);
-                //_desafio4(-7);
-                //_desafio8(57, 7, 99);
-                _desafio09([5, 7, 6]);
+                _desafio06(27);
+
+                _desafio16('Arara');
+                _desafio11(5);
+
+                _desafio7(1871, 1417);
               },
             ),
             const SizedBox(height: 20),
