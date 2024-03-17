@@ -71,7 +71,20 @@ class _MyHomePageState extends State<MyHomePage> {
       _result = list.toString() + descending.toString();
     });  
   }
+  void _desafio18(String palavra, String frase) {
 
+  List<String> palavrasNaFrase = frase.split(' ');
+  int contador = 0;
+  
+  for (String palavraNaFrase in palavrasNaFrase) {
+    if (palavraNaFrase.toLowerCase() == palavra.toLowerCase()) {
+      contador++;
+    }
+  }
+  setState((){
+    _result = '$frase\n A palavra "$palavra" aparece $contador vezes na frase.';
+  });
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,7 +108,8 @@ class _MyHomePageState extends State<MyHomePage> {
               callChallenge: () {
                 // _desafio2(2, 5, 10);
                 //_desafio4(-7);
-                _desafio8(57,7,99);
+                //_desafio8(57,7,99);
+                _desafio18("um", "Eu posso comer um McDonald's, um BurgerKing e um Popeyes");
               },
             ),
             const SizedBox(height: 20),
