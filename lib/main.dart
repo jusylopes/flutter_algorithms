@@ -114,8 +114,15 @@ class _MyHomePageState extends State<MyHomePage> {
       _result = list.toString() + descending.toString();
     });  
   }
-
-
+  void _desafio15(int valueA){  // resolução do desafio 7
+   List<int> numbers = [];
+  for (int i = 0; i <= valueA; i++) {
+    numbers.add(i);
+  }
+  setState(() {
+    _result =  numbers.toString();
+  });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
