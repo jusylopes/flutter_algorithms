@@ -75,7 +75,14 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-   void _desafio8(valueA, valueB, valueC) {//resolução do desafio 8
+  void _desafio7(double userSalary, double minimumSalary){ // resolução do desafio 15
+    double salaryMultiplier = userSalary / minimumSalary;
+  setState(() {
+    _result = 'O usuário recebe um salário igual a ${salaryMultiplier.toStringAsFixed(2)} vezes o salário mínimo.';
+  });
+ }
+
+  void _desafio8(valueA, valueB, valueC) {//resolução do desafio 8
 
     List<int> listNumber = [valueA, valueB, valueC];
 
@@ -87,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _result = list.toString() + descending.toString();
     });  
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +119,8 @@ class _MyHomePageState extends State<MyHomePage> {
               callChallenge: () {
                 // _desafio2(2, 5, 10);
                 //_desafio4(-7);
-                _desafio8(57,7,99);
+                //_desafio8(57,7,99);
+                _desafio7(1871, 1417);
               },
             ),
             const SizedBox(height: 20),
