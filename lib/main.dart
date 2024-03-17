@@ -59,6 +59,25 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _desafio13(value1, value2, value3, value4, value5, value6, value7, value8, value9, value10) {//resolução desafio 13
+    List<int> numeros = [value1, value2, value3, value4, value5, value6, value7, value8, value9, value10];
+    
+    int contadorPar = 0; 
+    int contadorImpar = 0;
+
+    for (int number in numeros) { 
+      if(number % 2 == 0){
+        contadorPar++;
+      }else{
+        contadorImpar++;
+      }
+    }
+
+    setState(() {
+      _result = 'A lista de números é: $numeros e tem $contadorPar números pares e $contadorImpar números ímpares';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,7 +100,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ButtonCalculate(
               callChallenge: () {
                 // _desafio2(2, 5, 10);
-                _desafio4(-7);
+                //_desafio4(-7);
+                _desafio13(5,15,25,37,58,64,82,19,7,13);
               },
             ),
             const SizedBox(height: 20),
