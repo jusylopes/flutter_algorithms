@@ -55,11 +55,13 @@ class _MyHomePageState extends State<MyHomePage> {
   } else {
     result = a * b;
     setState(() {
-      _result = 'Se os valores forem iguais o valor da soma é: ${result = a + b} : e Se os valores forem diferenes o valor da multiplicação é ${result = a * b}'; 
+      _result = 'A soma dos valores iguais é: ${result = a + b} : Quanto a multiplicação dos valores diferentes é: ${result = a * b}'; 
     
   });
   }
   }
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,7 +84,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ButtonCalculate(
               callChallenge: () {
                 //_desafio2(2, 5, 10);
-               _desafio5(20, 15);
+               _desafio5(10, 5);
+               
               },
             ),
             const SizedBox(height: 20),
