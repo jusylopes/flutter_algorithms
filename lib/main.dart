@@ -55,14 +55,16 @@ class _MyHomePageState extends State<MyHomePage> {
     int maior = numbers[0];
 
     for (int i = 1; i < numbers.length; i++) {
-        if (numbers[i] < menor) {
-        menor = numbers[i];}
-        if (numbers[i] > maior) {
+      if (numbers[i] < menor) {
+        menor = numbers[i];
+      }
+      if (numbers[i] > maior) {
         maior = numbers[i];
       }
     }
     setState(() {
-      _result = 'Entrada: $numbers maior numero é $maior, o numero menor é $menor ';
+      _result =
+          'Entrada: $numbers maior numero é $maior, o numero menor é $menor ';
     });
   }
 
@@ -72,6 +74,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
     setState(() {
       _result = '$number é $evenOrOdd e $positiveOrNegative';
+    });
+  }
+
+  void _desafio06(int numero) {
+    int antecessor = numero - 1;
+    int sucessor = numero + 1;
+
+    setState(() {
+      _result =
+          'O antecessor de $numero é $antecessor, e o sucessor é $sucessor.';
     });
   }
 
@@ -95,34 +107,36 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _desafio7(double userSalary, double minimumSalary){ // resolução do desafio 15
+  void _desafio7(double userSalary, double minimumSalary) {
     double salaryMultiplier = userSalary / minimumSalary;
-  setState(() {
-    _result = 'O usuário recebe um salário igual a ${salaryMultiplier.toStringAsFixed(2)} vezes o salário mínimo.';
-  });
- }
+    setState(() {
+      _result =
+          'O usuário recebe um salário igual a ${salaryMultiplier.toStringAsFixed(2)} vezes o salário mínimo.';
+    });
+  }
 
-  void _desafio8(valueA, valueB, valueC) {//resolução do desafio 8
-
+  void _desafio8(valueA, valueB, valueC) {
     List<int> listNumber = [valueA, valueB, valueC];
 
     String list = 'A lista de números é: $listNumber ';
-    listNumber.sort((a,b) => -a.compareTo(b));
+    listNumber.sort((a, b) => -a.compareTo(b));
     String descending = 'e a ordem decrescente da lista fica: $listNumber';
 
     setState(() {
       _result = list.toString() + descending.toString();
-    });  
+    });
   }
-  void _desafio15(int valueA){  // resolução do desafio 7
-   List<int> numbers = [];
-  for (int i = 0; i <= valueA; i++) {
-    numbers.add(i);
+
+  void _desafio15(int valueA) {
+    List<int> numbers = [];
+    for (int i = 0; i <= valueA; i++) {
+      numbers.add(i);
+    }
+    setState(() {
+      _result = numbers.toString();
+    });
   }
-  setState(() {
-    _result =  numbers.toString();
-  });
-  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -144,11 +158,11 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ButtonCalculate(
               callChallenge: () {
-                // _desafio2(2, 5, 10);
-                //_desafio4(-7);
+                _desafio06(27);
+
                 _desafio16('Arara');
                 _desafio11(5);
-                //_desafio8(57,7,99);
+
                 _desafio7(1871, 1417);
               },
             ),
