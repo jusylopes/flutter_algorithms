@@ -127,6 +127,21 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _desafio09(List<double> notas) {
+    double soma = notas.reduce((a, b) => a + b);
+    double media = soma / notas.length;
+    String mediaString = media.toStringAsFixed(2);
+    String resultado;
+    if (media >= 7) {
+      resultado = 'aprovado';
+    } else {
+      resultado = 'reprovado';
+    }
+    setState(() {
+      _result = 'Média $mediaString, aluno $resultado';
+    });
+  }
+
   void _desafio15(int valueA) {
     List<int> numbers = [];
     for (int i = 0; i <= valueA; i++) {
