@@ -50,6 +50,22 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _desafio14(List<int> numbers) {
+    int menor = numbers[0];
+    int maior = numbers[0];
+
+    for (int i = 1; i < numbers.length; i++) {
+        if (numbers[i] < menor) {
+        menor = numbers[i];}
+        if (numbers[i] > maior) {
+        maior = numbers[i];
+      }
+    }
+    setState(() {
+      _result = 'Entrada: $numbers maior numero é $maior, o numero menor é $menor ';
+    });
+  }
+
   void _desafio4(int number) {
     String evenOrOdd = number % 2 == 0 ? 'par' : 'ímpar';
     String positiveOrNegative = number > 0 ? 'positivo' : 'negativo';
