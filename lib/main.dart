@@ -75,6 +75,16 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _desafio16(String text) {
+    String textReversed = text.split('').reversed.join('');
+    bool isPalindrom = text.toLowerCase() == textReversed.toLowerCase();
+
+    setState(() {
+      _result =
+          '$text | $textReversed - ${isPalindrom ? 'é um palíndromo' : 'não é um palíndromo'}';
+    });
+  }
+
   void _desafio11(int number) async {
     List<int> table = [];
     for (int contador = 1; contador <= 10; contador++) {
@@ -129,6 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
               callChallenge: () {
                 // _desafio2(2, 5, 10);
                 //_desafio4(-7);
+                _desafio16('Arara');
                 _desafio11(5);
                 //_desafio8(57,7,99);
                 _desafio7(1871, 1417);
