@@ -72,14 +72,22 @@ class _MyHomePageState extends State<MyHomePage> {
     });  
   }
 
-  void _desafio7(int valueA){
+  void _desafio7(int valueA){  // resolução do desafio 7
    List<int> numbers = [];
   for (int i = 0; i <= valueA; i++) {
     numbers.add(i);
   }
   setState(() {
-    _result = ("a lista de numeros é " : numbers.toString();
+    _result =  numbers.toString();
   });
+  }
+
+  void _desafio15(double userSalary, double minimumSalary){ // resolução do desafio 15
+    double salaryMultiplier = userSalary / minimumSalary;
+  setState(() {
+    _result = 'O usuário recebe um salário igual a ${salaryMultiplier.toStringAsFixed(2)} vezes o salário mínimo.';
+  });
+
   }
 
   @override
@@ -106,7 +114,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 // _desafio2(2, 5, 10);
                 //_desafio4(-7);
                 //_desafio8(57,7,99);
-                _desafio7(5);
+                //_desafio7(9);
+                _desafio15(1861, 1417);
               },
             ),
             const SizedBox(height: 20),
