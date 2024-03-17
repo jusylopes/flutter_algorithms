@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-   void _desafio8(valueA, valueB, valueC) {//resolução do desafio 8
+  void _desafio8(valueA, valueB, valueC) {//resolução do desafio 8
 
     List<int> listNumber = [valueA, valueB, valueC];
 
@@ -70,6 +70,16 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _result = list.toString() + descending.toString();
     });  
+  }
+
+  void _desafio7(int valueA){
+   List<int> numbers = [];
+  for (int i = 0; i <= valueA; i++) {
+    numbers.add(i);
+  }
+  setState(() {
+    _result = ("a lista de numeros é " : numbers.toString();
+  });
   }
 
   @override
@@ -95,7 +105,8 @@ class _MyHomePageState extends State<MyHomePage> {
               callChallenge: () {
                 // _desafio2(2, 5, 10);
                 //_desafio4(-7);
-                _desafio8(57,7,99);
+                //_desafio8(57,7,99);
+                _desafio7(5);
               },
             ),
             const SizedBox(height: 20),
