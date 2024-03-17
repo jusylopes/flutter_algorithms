@@ -59,17 +59,35 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-   void _desafio8(valueA, valueB, valueC) {//resolução do desafio 8
+  void _desafio8(valueA, valueB, valueC) {
+    //resolução do desafio 8
 
     List<int> listNumber = [valueA, valueB, valueC];
 
     String list = 'A lista de números é: $listNumber ';
-    listNumber.sort((a,b) => -a.compareTo(b));
+    listNumber.sort((a, b) => -a.compareTo(b));
     String descending = 'e a ordem decrescente da lista fica: $listNumber';
 
     setState(() {
       _result = list.toString() + descending.toString();
-    });  
+    });
+  }
+
+  void _desafio17(int number) {
+    String result = '';
+    if (number > 1) {
+      result = 'é primo';
+      for (int i = 2; i <= number / 2; i++) {
+        if (number % i == 0) {
+          result = 'não é primo';
+          break;
+        }
+      }
+    }
+
+    setState(() {
+      _result = '$number $result';
+    });
   }
 
   @override
@@ -95,7 +113,8 @@ class _MyHomePageState extends State<MyHomePage> {
               callChallenge: () {
                 // _desafio2(2, 5, 10);
                 //_desafio4(-7);
-                _desafio8(57,7,99);
+                //_desafio8(57,7,99);
+                _desafio17(10);
               },
             ),
             const SizedBox(height: 20),
