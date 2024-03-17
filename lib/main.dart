@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: 'Team 5',
       theme: ThemeData(
         colorScheme:
             ColorScheme.fromSeed(seedColor: Colors.tealAccent.shade700),
@@ -45,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
     int sum = valueA + valueB;
     setState(() {
       _result =
-          '${sum > valueC ? 'A soma é maior que C' : 'A soma não é maior que C'} e o resultado é ${sum.toString()}';
+          'A soma de $valueA + $valueB é $sum, esse número ${sum > valueC ? 'é maior que' : 'não é maior que'} $valueC';
     });
   }
 
@@ -63,6 +64,28 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _result = 'Entrada: $numbers maior numero é $maior, o numero menor é $menor ';
     });
+  }
+
+  void _desafio4(int number) {
+    String evenOrOdd = number % 2 == 0 ? 'par' : 'ímpar';
+    String positiveOrNegative = number > 0 ? 'positivo' : 'negativo';
+
+    setState(() {
+      _result = '$number é $evenOrOdd e $positiveOrNegative';
+    });
+  }
+
+   void _desafio8(valueA, valueB, valueC) {//resolução do desafio 8
+
+    List<int> listNumber = [valueA, valueB, valueC];
+
+    String list = 'A lista de números é: $listNumber ';
+    listNumber.sort((a,b) => -a.compareTo(b));
+    String descending = 'e a ordem decrescente da lista fica: $listNumber';
+
+    setState(() {
+      _result = list.toString() + descending.toString();
+    });  
   }
 
   @override
@@ -86,8 +109,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ButtonCalculate(
               callChallenge: () {
-                //_desafio2(2, 5, 10);
-                _desafio14([2,3,4,5,6,7,8,9,10,15]);
+                // _desafio2(2, 5, 10);
+                //_desafio4(-7);
+                _desafio8(57,7,99);
               },
             ),
             const SizedBox(height: 20),
