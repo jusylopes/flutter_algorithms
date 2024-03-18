@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
       'desafio2': () => _desafio2(2, 5, 10),
       'desafio3': () => _desafio3(5),
       'desafio4': () => _desafio4(-7),
-      'desafio5': () => '_desafio5(10,5)',
+      'desafio5': () => _desafio5(10,5),
       'desafio6': () => _desafio6(27),
       'desafio7': () => _desafio7(1871, 1417),
       'desafio8': () => _desafio8(57, 7, 99),
@@ -119,6 +119,19 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _desafio5(int a, int b) {
+    int result;
+    if (a == b) {
+      result = a + b;
+    } else {
+      result = a * b;
+      setState(() {
+        _result =
+            'Se os valores forem iguais o valor da soma é: ${result = a + b} : e Se os valores forem diferenes o valor da multiplicação é ${result = a * b}';
+      });
+    }
+  }
+
   void _desafio6(int numero) {
     int antecessor = numero - 1;
     int sucessor = numero + 1;
@@ -147,6 +160,8 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _result = list.toString() + descending.toString();
     });
+<<<<<<< HEAD
+=======
   }
 
   void _desafio9(List<double> notas) {
@@ -269,6 +284,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _result =
           '$frase\n A palavra "$palavra" aparece $contador vezes na frase.';
     });
+>>>>>>> a6139d34e087859e468195758738fc55c6cc5366
   }
 
   @override
@@ -316,7 +332,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 _result,
-                textAlign: TextAlign.center,
+                textAlign: TextAlign.center,   
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 20,
