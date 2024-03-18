@@ -101,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
               callChallenge: () {
                 // _desafio2(2, 5, 10);
                 //_desafio4(-7);
-                _desafio13(5,15,25,37,58,64,82,19,7,13);
+                _desafio13(7,9,13,21,16,18,22,15,17,32);
               },
             ),
             const SizedBox(height: 20),
