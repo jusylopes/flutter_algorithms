@@ -42,11 +42,52 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  //Crie uma função que inicialize dois valores inteiros (A e B). Como resultado, mostre na tela qual é o maior valor
+  void _desafio1(int valueA, int valueB) {
+    setState(() {
+      if (valueA > valueB) {
+        _result = "O maior número entre ${valueA} e ${valueB} é ${valueA}.";
+      } else {
+        _result = "O maior número entre ${valueA} e ${valueB} é ${valueB}.";
+      }
+    });
+  }
+
   void _desafio2(int valueA, int valueB, int valueC) {
     int sum = valueA + valueB;
     setState(() {
       _result =
           'A soma de $valueA + $valueB é $sum, esse número ${sum > valueC ? 'é maior que' : 'não é maior que'} $valueC';
+    });
+  }
+
+  void _desafio14(List<int> numbers) {
+    int menor = numbers[0];
+    int maior = numbers[0];
+
+    for (int i = 1; i < numbers.length; i++) {
+      if (numbers[i] < menor) {
+        menor = numbers[i];
+      }
+      if (numbers[i] > maior) {
+        maior = numbers[i];
+      }
+    }
+    setState(() {
+      _result =
+          'Entrada: $numbers maior numero é $maior, o numero menor é $menor ';
+    });
+  }
+
+  void _desafio3(int fatorial) {
+    int result = 1;
+
+    for (int i = 1; i <= fatorial; i++) {
+      result *= i;
+    }
+
+    setState(() {
+      _result = 'O resultado fatorial de $fatorial! é $result.';
     });
   }
 
@@ -59,8 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _desafio13(value1, value2, value3, value4, value5, value6, value7, value8, value9, value10) {//resolução desafio 13
-    List<int> numeros = [value1, value2, value3, value4, value5, value6, value7, value8, value9, value10];
+  void _desafio13(List<int> numeros) {//resolução desafio 13
     
     int contadorPar = 0; 
     int contadorImpar = 0;
@@ -75,6 +115,81 @@ class _MyHomePageState extends State<MyHomePage> {
 
     setState(() {
       _result = 'A lista de números é: $numeros e tem $contadorPar números pares e $contadorImpar números ímpares';
+    });
+  }
+    
+  void _desafio06(int numero) {
+    int antecessor = numero - 1;
+    int sucessor = numero + 1;
+
+    setState(() {
+      _result =
+          'O antecessor de $numero é $antecessor, e o sucessor é $sucessor.';
+    });
+  }
+
+  void _desafio16(String text) {
+    String textReversed = text.split('').reversed.join('');
+    bool isPalindrom = text.toLowerCase() == textReversed.toLowerCase();
+
+    setState(() {
+      _result =
+          '$text | $textReversed - ${isPalindrom ? 'é um palíndromo' : 'não é um palíndromo'}';
+    });
+  }
+
+  void _desafio11(int number) async {
+    List<int> table = [];
+    for (int contador = 1; contador <= 10; contador++) {
+      table.add(number * contador);
+    }
+    setState(() {
+      _result = table.join(', ');
+    });
+  }
+
+  void _desafio7(double userSalary, double minimumSalary) {
+    double salaryMultiplier = userSalary / minimumSalary;
+    setState(() {
+      _result =
+          'O usuário recebe um salário igual a ${salaryMultiplier.toStringAsFixed(2)} vezes o salário mínimo.';
+    });
+  }
+
+  void _desafio8(valueA, valueB, valueC) {
+    List<int> listNumber = [valueA, valueB, valueC];
+
+    String list = 'A lista de números é: $listNumber ';
+    listNumber.sort((a, b) => -a.compareTo(b));
+    String descending = 'e a ordem decrescente da lista fica: $listNumber';
+
+    setState(() {
+      _result = list.toString() + descending.toString();
+    });
+  }
+
+  void _desafio09(List<double> notas) {
+    double soma = notas.reduce((a, b) => a + b);
+    double media = soma / notas.length;
+    String mediaString = media.toStringAsFixed(2);
+    String resultado;
+    if (media >= 7) {
+      resultado = 'aprovado';
+    } else {
+      resultado = 'reprovado';
+    }
+    setState(() {
+      _result = 'Média $mediaString, aluno $resultado';
+    });
+  }
+
+  void _desafio15(int valueA) {
+    List<int> numbers = [];
+    for (int i = 0; i <= valueA; i++) {
+      numbers.add(i);
+    }
+    setState(() {
+      _result = numbers.toString();
     });
   }
 
@@ -101,7 +216,13 @@ class _MyHomePageState extends State<MyHomePage> {
               callChallenge: () {
                 // _desafio2(2, 5, 10);
                 //_desafio4(-7);
-                _desafio13(7,9,13,21,16,18,22,15,17,32);
+                _desafio13([7,9,13,21,16,18,22,15,17,32]);
+                //_desafio06(27);
+
+                //_desafio16('Arara');
+                //_desafio11(5);
+
+                //_desafio7(1871, 1417);
               },
             ),
             const SizedBox(height: 20),
@@ -128,7 +249,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-}
+} 
 
 class ButtonCalculate extends StatelessWidget {
   final Function() callChallenge;
