@@ -187,12 +187,12 @@ class _MyHomePageState extends State<MyHomePage> {
                _desafio12([2,4,6]);
                 // _desafio2(2, 5, 10);
                 //_desafio4(-7);
-                _desafio06(27);
+                //_desafio06(27);
 
-                _desafio16('Arara');
-                _desafio11(5);
+                //_desafio16('Arara');
+                //_desafio11(5);
 
-                _desafio7(1871, 1417);
+                //_desafio7(1871, 1417);
               },
             ),
             const SizedBox(height: 20),
