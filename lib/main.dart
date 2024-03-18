@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
       'desafio9': () => _desafio9([5, 7, 6]),
       'desafio10': () => _desafio10('Vinicius', 31),
       'desafio11': () => _desafio11(5),
-      'desafio12': () => '_desafio12([2,4,6])',
+      'desafio12': () => _desafio12([2,4,6]),
       'desafio13': () => _desafio13([7, 9, 13, 21, 16, 18, 22, 15, 17, 32]),
       'desafio14': () => _desafio14([2, 3, 4, 5, 6, 7, 8, 9, 10, 15]),
       'desafio15': () => _desafio15(2),
@@ -98,25 +98,10 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-feature-challenge-12
-  void _desafio12(List<int> numbers) {
-    List<int> square = [];
-    for (int number in numbers) {
-      square.add(number * number);
-    }
-    setState(() {
-      _result = 'entrada = $numbers \n saída = $square';
-    });
-  }  
- main
-  void _desafio14(List<int> numbers) {
-    int menor = numbers[0];
-    int maior = numbers[0];
-=======
-  void _desafio3(int fatorial) {
+
+
+   void _desafio3(int fatorial) {
     int result = 1;
-
-
     for (int i = 1; i <= fatorial; i++) {
       result *= i;
     }
@@ -176,8 +161,7 @@ feature-challenge-12
     setState(() {
       _result = list.toString() + descending.toString();
     });
-<<<<<<< HEAD
-=======
+
   }
 
   void _desafio9(List<double> notas) {
@@ -217,6 +201,17 @@ feature-challenge-12
     });
   }
 
+  
+  void _desafio12(List<int> numbers) {
+    List<int> square = [];
+    for (int number in numbers) {
+      square.add(number * number);
+    }
+    setState(() {
+      _result = 'entrada = $numbers \n saída = $square';
+    });
+  }  
+
   void _desafio13(List<int> numeros) {
     int contadorPar = 0;
     int contadorImpar = 0;
@@ -230,8 +225,7 @@ feature-challenge-12
     }
 
     setState(() {
-      _result = '$number $result';
-      _result =
+           _result =
           'A lista de números é: $numeros e tem $contadorPar números pares e $contadorImpar números ímpares';
     });
   }
@@ -300,7 +294,7 @@ feature-challenge-12
       _result =
           '$frase\n A palavra "$palavra" aparece $contador vezes na frase.';
     });
->>>>>>> a6139d34e087859e468195758738fc55c6cc5366
+
   }
 
   @override
@@ -336,19 +330,9 @@ feature-challenge-12
             ),
             ButtonCalculate(
               callChallenge: () {
-              feature-challenge-12
-               // _desafio2(2, 5, 10);
-               _desafio12([2,4,6]);
-                // _desafio2(2, 5, 10);
-                //_desafio4(-7);
-                //_desafio06(27);
-
-                //_desafio16('Arara');
-                //_desafio11(5);
-
-                //_desafio7(1871, 1417);
+             
                 callChallenge();
-                main
+               
               },
             ),
             const SizedBox(height: 20),
