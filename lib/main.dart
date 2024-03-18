@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
       'desafio2': () => _desafio2(2, 5, 10),
       'desafio3': () => _desafio3(5),
       'desafio4': () => _desafio4(-7),
-      'desafio5': () => '_desafio5(10,5)',
+      'desafio5': () => _desafio5(10,5),
       'desafio6': () => _desafio6(27),
       'desafio7': () => _desafio7(1871, 1417),
       'desafio8': () => _desafio8(57, 7, 99),
@@ -70,9 +70,9 @@ class _MyHomePageState extends State<MyHomePage> {
       'desafio14': () => _desafio14([2, 3, 4, 5, 6, 7, 8, 9, 10, 15]),
       'desafio15': () => _desafio15(2),
       'desafio16': () => _desafio16('Arara'),
-      'desafio17': () => '_desafio17(10)',
-      'desafio18': () =>
-          '_desafio18("um", "Eu posso comer um McDonald\'s, um BurgerKing e um Popeyes")',
+      'desafio17': () => _desafio17(10),
+      'desafio18': () => _desafio18(
+          "um", "Eu posso comer um McDonald\'s, um BurgerKing e um Popeyes"),
     };
 
     if (challengeFunctions.containsKey(_nameChallenge)) {
@@ -135,6 +135,19 @@ feature-challenge-12
     });
   }
 
+  void _desafio5(int a, int b) {
+    int result;
+    if (a == b) {
+      result = a + b;
+    } else {
+      result = a * b;
+      setState(() {
+        _result =
+            'Se os valores forem iguais o valor da soma é: ${result = a + b} : e Se os valores forem diferenes o valor da multiplicação é ${result = a * b}';
+      });
+    }
+  }
+
   void _desafio6(int numero) {
     int antecessor = numero - 1;
     int sucessor = numero + 1;
@@ -163,6 +176,8 @@ feature-challenge-12
     setState(() {
       _result = list.toString() + descending.toString();
     });
+<<<<<<< HEAD
+=======
   }
 
   void _desafio9(List<double> notas) {
@@ -215,6 +230,7 @@ feature-challenge-12
     }
 
     setState(() {
+      _result = '$number $result';
       _result =
           'A lista de números é: $numeros e tem $contadorPar números pares e $contadorImpar números ímpares';
     });
@@ -256,6 +272,35 @@ feature-challenge-12
       _result =
           '$text | $textReversed - ${isPalindrom ? 'é um palíndromo' : 'não é um palíndromo'}';
     });
+  }
+
+  void _desafio17(int number) {
+    String result = '';
+    if (number > 1) {
+      result = 'é primo';
+      for (int i = 2; i <= number / 2; i++) {
+        if (number % i == 0) {
+          result = 'não é primo';
+          break;
+        }
+      }
+    }
+  }
+
+  void _desafio18(String palavra, String frase) {
+    List<String> palavrasNaFrase = frase.split(' ');
+    int contador = 0;
+
+    for (String palavraNaFrase in palavrasNaFrase) {
+      if (palavraNaFrase.toLowerCase() == palavra.toLowerCase()) {
+        contador++;
+      }
+    }
+    setState(() {
+      _result =
+          '$frase\n A palavra "$palavra" aparece $contador vezes na frase.';
+    });
+>>>>>>> a6139d34e087859e468195758738fc55c6cc5366
   }
 
   @override
@@ -315,7 +360,7 @@ feature-challenge-12
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 _result,
-                textAlign: TextAlign.center,
+                textAlign: TextAlign.center,   
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 20,
