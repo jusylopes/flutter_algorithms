@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
       'desafio14': () => _desafio14([2, 3, 4, 5, 6, 7, 8, 9, 10, 15]),
       'desafio15': () => _desafio15(2),
       'desafio16': () => _desafio16('Arara'),
-      'desafio17': () => '_desafio17(10)',
+      'desafio17': () => _desafio17(10),
       'desafio18': () => _desafio18(
           "um", "Eu posso comer um McDonald\'s, um BurgerKing e um Popeyes"),
     };
@@ -199,6 +199,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
     setState(() {
+      _result = '$number $result';
       _result =
           'A lista de números é: $numeros e tem $contadorPar números pares e $contadorImpar números ímpares';
     });
@@ -240,6 +241,19 @@ class _MyHomePageState extends State<MyHomePage> {
       _result =
           '$text | $textReversed - ${isPalindrom ? 'é um palíndromo' : 'não é um palíndromo'}';
     });
+  }
+
+  void _desafio17(int number) {
+    String result = '';
+    if (number > 1) {
+      result = 'é primo';
+      for (int i = 2; i <= number / 2; i++) {
+        if (number % i == 0) {
+          result = 'não é primo';
+          break;
+        }
+      }
+    }
   }
 
   void _desafio18(String palavra, String frase) {
