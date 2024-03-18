@@ -42,13 +42,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  //Crie uma função que inicialize dois valores inteiros (A e B). Como resultado, mostre na tela qual é o maior valor
   void _desafio1(int valueA, int valueB) {
     setState(() {
       if (valueA > valueB) {
-        _result = "O maior número entre ${valueA} e ${valueB} é ${valueA}.";
+        _result = "O maior número entre $valueA e $valueB é $valueA.";
       } else {
-        _result = "O maior número entre ${valueA} e ${valueB} é ${valueB}.";
+        _result = "O maior número entre $valueA e $valueB é $valueB.";
       }
     });
   }
@@ -58,36 +57,6 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _result =
           'A soma de $valueA + $valueB é $sum, esse número ${sum > valueC ? 'é maior que' : 'não é maior que'} $valueC';
-    });
-  }
-
-  void _desafio10(String name, int idade) {
-    String result = '';
-    if (idade >= 18) {
-      result = 'é maior';
-    } else {
-      result = 'é menor';
-    }
-    setState(() {
-      _result = '$name você $result de idade';
-    });
-  }
-
-  void _desafio14(List<int> numbers) {
-    int menor = numbers[0];
-    int maior = numbers[0];
-
-    for (int i = 1; i < numbers.length; i++) {
-      if (numbers[i] < menor) {
-        menor = numbers[i];
-      }
-      if (numbers[i] > maior) {
-        maior = numbers[i];
-      }
-    }
-    setState(() {
-      _result =
-          'Entrada: $numbers maior numero é $maior, o numero menor é $menor ';
     });
   }
 
@@ -112,51 +81,13 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _desafio13(List<int> numeros) {//resolução desafio 13
-    
-    int contadorPar = 0; 
-    int contadorImpar = 0;
-
-    for (int number in numeros) { 
-      if(number % 2 == 0){
-        contadorPar++;
-      }else{
-        contadorImpar++;
-      }
-    }
-
-    setState(() {
-      _result = 'A lista de números é: $numeros e tem $contadorPar números pares e $contadorImpar números ímpares';
-    });
-  }
-    
-  void _desafio06(int numero) {
+  void _desafio6(int numero) {
     int antecessor = numero - 1;
     int sucessor = numero + 1;
 
     setState(() {
       _result =
           'O antecessor de $numero é $antecessor, e o sucessor é $sucessor.';
-    });
-  }
-
-  void _desafio16(String text) {
-    String textReversed = text.split('').reversed.join('');
-    bool isPalindrom = text.toLowerCase() == textReversed.toLowerCase();
-
-    setState(() {
-      _result =
-          '$text | $textReversed - ${isPalindrom ? 'é um palíndromo' : 'não é um palíndromo'}';
-    });
-  }
-
-  void _desafio11(int number) async {
-    List<int> table = [];
-    for (int contador = 1; contador <= 10; contador++) {
-      table.add(number * contador);
-    }
-    setState(() {
-      _result = table.join(', ');
     });
   }
 
@@ -180,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _desafio09(List<double> notas) {
+  void _desafio9(List<double> notas) {
     double soma = notas.reduce((a, b) => a + b);
     double media = soma / notas.length;
     String mediaString = media.toStringAsFixed(2);
@@ -195,6 +126,64 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _desafio10(String name, int idade) {
+    String result = '';
+    if (idade >= 18) {
+      result = 'é maior';
+    } else {
+      result = 'é menor';
+    }
+    setState(() {
+      _result = '$name você $result de idade';
+    });
+  }
+
+  void _desafio11(int number) async {
+    List<int> table = [];
+    for (int contador = 1; contador <= 10; contador++) {
+      table.add(number * contador);
+    }
+    setState(() {
+      _result = table.join(', ');
+    });
+  }
+
+  void _desafio13(List<int> numeros) {
+    int contadorPar = 0;
+    int contadorImpar = 0;
+
+    for (int number in numeros) {
+      if (number % 2 == 0) {
+        contadorPar++;
+      } else {
+        contadorImpar++;
+      }
+    }
+
+    setState(() {
+      _result =
+          'A lista de números é: $numeros e tem $contadorPar números pares e $contadorImpar números ímpares';
+    });
+  }
+
+  void _desafio14(List<int> numbers) {
+    int menor = numbers[0];
+    int maior = numbers[0];
+
+    for (int i = 1; i < numbers.length; i++) {
+      if (numbers[i] < menor) {
+        menor = numbers[i];
+      }
+      if (numbers[i] > maior) {
+        maior = numbers[i];
+      }
+    }
+    setState(() {
+      _result =
+          'Entrada: $numbers maior numero é $maior, o numero menor é $menor ';
+    });
+  }
+
   void _desafio15(int valueA) {
     List<int> numbers = [];
     for (int i = 0; i <= valueA; i++) {
@@ -202,6 +191,16 @@ class _MyHomePageState extends State<MyHomePage> {
     }
     setState(() {
       _result = numbers.toString();
+    });
+  }
+
+  void _desafio16(String text) {
+    String textReversed = text.split('').reversed.join('');
+    bool isPalindrom = text.toLowerCase() == textReversed.toLowerCase();
+
+    setState(() {
+      _result =
+          '$text | $textReversed - ${isPalindrom ? 'é um palíndromo' : 'não é um palíndromo'}';
     });
   }
 
@@ -226,18 +225,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ButtonCalculate(
               callChallenge: () {
-                // _desafio2(2, 5, 10);
-                //_desafio4(-7);
-                _desafio13([7,9,13,21,16,18,22,15,17,32]);
-                //_desafio06(27);
-                //_desafio2(2, 5, 10);
+                _desafio13([7, 9, 13, 21, 16, 18, 22, 15, 17, 32]);
                 _desafio10('Vinicius', 31);
-                // _desafio2(2, 5, 10);
-                //_desafio4(-7);
-                _desafio06(27);
-                //_desafio16('Arara');
-                //_desafio11(5);
-                //_desafio7(1871, 1417);
+                _desafio6(27);
               },
             ),
             const SizedBox(height: 20),
@@ -264,7 +254,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-} 
+}
 
 class ButtonCalculate extends StatelessWidget {
   final Function() callChallenge;
