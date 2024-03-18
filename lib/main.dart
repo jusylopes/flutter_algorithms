@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _result = 'entrada = $numbers \n saída = $square';
     });
-  }
+  }  
 
   @override
   Widget build(BuildContext context) {
