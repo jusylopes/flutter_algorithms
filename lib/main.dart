@@ -71,8 +71,8 @@ class _MyHomePageState extends State<MyHomePage> {
       'desafio15': () => _desafio15(2),
       'desafio16': () => _desafio16('Arara'),
       'desafio17': () => '_desafio17(10)',
-      'desafio18': () =>
-          '_desafio18("um", "Eu posso comer um McDonald\'s, um BurgerKing e um Popeyes")',
+      'desafio18': () => _desafio18(
+          "um", "Eu posso comer um McDonald\'s, um BurgerKing e um Popeyes"),
     };
 
     if (challengeFunctions.containsKey(_nameChallenge)) {
@@ -239,6 +239,21 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _result =
           '$text | $textReversed - ${isPalindrom ? 'é um palíndromo' : 'não é um palíndromo'}';
+    });
+  }
+
+  void _desafio18(String palavra, String frase) {
+    List<String> palavrasNaFrase = frase.split(' ');
+    int contador = 0;
+
+    for (String palavraNaFrase in palavrasNaFrase) {
+      if (palavraNaFrase.toLowerCase() == palavra.toLowerCase()) {
+        contador++;
+      }
+    }
+    setState(() {
+      _result =
+          '$frase\n A palavra "$palavra" aparece $contador vezes na frase.';
     });
   }
 
