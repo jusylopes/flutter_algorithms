@@ -119,16 +119,22 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _desafio5(int a, int b) {
-    int result;
+    String resultTexto = '';
+    int soma = 0;
+    int multiplicacao = 0;
+
     if (a == b) {
-      result = a + b;
+      soma = a + b;
+      resultTexto = 'Os números são iguais, a soma é $soma';
     } else {
-      result = a * b;
-      setState(() {
-        _result =
-            'Se os valores forem iguais o valor da soma é: ${result = a + b} : e Se os valores forem diferenes o valor da multiplicação é ${result = a * b}';
-      });
+      multiplicacao = a * b;
+      resultTexto =
+          'Os números são diferentes, a multiplicação é $multiplicacao';
     }
+
+    setState(() {
+      _result = resultTexto;
+    });
   }
 
   void _desafio6(int numero) {
