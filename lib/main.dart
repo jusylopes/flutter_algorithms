@@ -44,7 +44,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   //Crie uma função que inicialize dois valores inteiros (A e B). Como resultado, mostre na tela qual é o maior valor
   void _desafio1(int valueA, int valueB) {
-    
     setState(() {
       if (valueA > valueB) {
         _result = "O maior número entre ${valueA} e ${valueB} é ${valueA}.";
@@ -77,6 +76,18 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _result =
           'Entrada: $numbers maior numero é $maior, o numero menor é $menor ';
+    });
+  }
+
+  void _desafio3(int fatorial) {
+    int result = 1;
+
+    for (int i = 1; i <= fatorial; i++) {
+      result *= i;
+    }
+
+    setState(() {
+      _result = 'O resultado fatorial de $fatorial! é $result.';
     });
   }
 
