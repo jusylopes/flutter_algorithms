@@ -35,11 +35,49 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String _result = '';
+  String? _nameChallenge;
+
+  final List<DropdownMenuItem<String>> _challengesList =
+      List.generate(18, (index) {
+    final desafioNumber = index + 1;
+    return DropdownMenuItem<String>(
+      value: 'desafio$desafioNumber',
+      child: Text('Desafio $desafioNumber'),
+    );
+  });
 
   void _incrementCounter() {
     setState(() {
       _counter++;
     });
+  }
+
+  void callChallenge() {
+    Map<String, Function> challengeFunctions = {
+      'desafio1': () => _desafio1(2, 4),
+      'desafio2': () => _desafio2(2, 5, 10),
+      'desafio3': () => _desafio3(5),
+      'desafio4': () => _desafio4(-7),
+      'desafio5': () => '_desafio5(10,5)',
+      'desafio6': () => _desafio6(27),
+      'desafio7': () => _desafio7(1871, 1417),
+      'desafio8': () => _desafio8(57, 7, 99),
+      'desafio9': () => _desafio9([5, 7, 6]),
+      'desafio10': () => _desafio10('Vinicius', 31),
+      'desafio11': () => _desafio11(5),
+      'desafio12': () => '_desafio12([2,4,6])',
+      'desafio13': () => _desafio13([7, 9, 13, 21, 16, 18, 22, 15, 17, 32]),
+      'desafio14': () => _desafio14([2, 3, 4, 5, 6, 7, 8, 9, 10, 15]),
+      'desafio15': () => _desafio15(2),
+      'desafio16': () => _desafio16('Arara'),
+      'desafio17': () => '_desafio17(10)',
+      'desafio18': () =>
+          '_desafio18("um", "Eu posso comer um McDonald\'s, um BurgerKing e um Popeyes")',
+    };
+
+    if (challengeFunctions.containsKey(_nameChallenge)) {
+      challengeFunctions[_nameChallenge]!();
+    }
   }
 
   void _desafio1(int valueA, int valueB) {
@@ -223,11 +261,21 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.all(12.0),
               child: Image.asset('assets/images/bongo-cat-button.gif'),
             ),
+            DropdownButton<String>(
+              hint: const Text(
+                'Escolha um desafio',
+              ),
+              value: _nameChallenge,
+              items: _challengesList,
+              onChanged: (String? value) {
+                setState(() {
+                  _nameChallenge = value;
+                });
+              },
+            ),
             ButtonCalculate(
               callChallenge: () {
-                _desafio13([7, 9, 13, 21, 16, 18, 22, 15, 17, 32]);
-                _desafio10('Vinicius', 31);
-                _desafio6(27);
+                callChallenge();
               },
             ),
             const SizedBox(height: 20),
