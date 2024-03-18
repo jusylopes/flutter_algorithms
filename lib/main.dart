@@ -58,21 +58,21 @@ class _MyHomePageState extends State<MyHomePage> {
       'desafio2': () => _desafio2(2, 5, 10),
       'desafio3': () => _desafio3(5),
       'desafio4': () => _desafio4(-7),
-      'desafio5': () => _desafio5(10,5),
+      'desafio5': () => _desafio5(10, 5),
       'desafio6': () => _desafio6(27),
       'desafio7': () => _desafio7(1871, 1417),
       'desafio8': () => _desafio8(57, 7, 99),
       'desafio9': () => _desafio9([5, 7, 6]),
       'desafio10': () => _desafio10('Vinicius', 31),
       'desafio11': () => _desafio11(5),
-      'desafio12': () => _desafio12([2,4,6]),
+      'desafio12': () => _desafio12([2, 4, 6]),
       'desafio13': () => _desafio13([7, 9, 13, 21, 16, 18, 22, 15, 17, 32]),
       'desafio14': () => _desafio14([2, 3, 4, 5, 6, 7, 8, 9, 10, 15]),
       'desafio15': () => _desafio15(2),
       'desafio16': () => _desafio16('Arara'),
       'desafio17': () => _desafio17(10),
       'desafio18': () => _desafio18(
-          "um", "Eu posso comer um McDonald\'s, um BurgerKing e um Popeyes"),
+          "um", "Eu posso comer um McDonald's, um BurgerKing e um Popeyes"),
     };
 
     if (challengeFunctions.containsKey(_nameChallenge)) {
@@ -98,9 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-
-
-   void _desafio3(int fatorial) {
+  void _desafio3(int fatorial) {
     int result = 1;
     for (int i = 1; i <= fatorial; i++) {
       result *= i;
@@ -161,7 +159,6 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _result = list.toString() + descending.toString();
     });
-
   }
 
   void _desafio9(List<double> notas) {
@@ -201,7 +198,6 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  
   void _desafio12(List<int> numbers) {
     List<int> square = [];
     for (int number in numbers) {
@@ -210,7 +206,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _result = 'entrada = $numbers \n saída = $square';
     });
-  }  
+  }
 
   void _desafio13(List<int> numeros) {
     int contadorPar = 0;
@@ -225,7 +221,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
     setState(() {
-           _result =
+      _result =
           'A lista de números é: $numeros e tem $contadorPar números pares e $contadorImpar números ímpares';
     });
   }
@@ -294,7 +290,6 @@ class _MyHomePageState extends State<MyHomePage> {
       _result =
           '$frase\n A palavra "$palavra" aparece $contador vezes na frase.';
     });
-
   }
 
   @override
@@ -330,9 +325,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ButtonCalculate(
               callChallenge: () {
-             
                 callChallenge();
-               
               },
             ),
             const SizedBox(height: 20),
@@ -344,7 +337,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 _result,
-                textAlign: TextAlign.center,   
+                textAlign: TextAlign.center,
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 20,
