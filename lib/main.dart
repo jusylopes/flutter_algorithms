@@ -50,6 +50,22 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _desafio14(List<int> numbers) {
+    int menor = numbers[0];
+    int maior = numbers[0];
+
+    for (int i = 1; i < numbers.length; i++) {
+        if (numbers[i] < menor) {
+        menor = numbers[i];}
+        if (numbers[i] > maior) {
+        maior = numbers[i];
+      }
+    }
+    setState(() {
+      _result = 'Entrada: $numbers maior numero é $maior, o numero menor é $menor ';
+    });
+  }
+
   void _desafio4(int number) {
     String evenOrOdd = number % 2 == 0 ? 'par' : 'ímpar';
     String positiveOrNegative = number > 0 ? 'positivo' : 'negativo';
@@ -59,7 +75,14 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-   void _desafio8(valueA, valueB, valueC) {//resolução do desafio 8
+  void _desafio7(double userSalary, double minimumSalary){ // resolução do desafio 15
+    double salaryMultiplier = userSalary / minimumSalary;
+  setState(() {
+    _result = 'O usuário recebe um salário igual a ${salaryMultiplier.toStringAsFixed(2)} vezes o salário mínimo.';
+  });
+ }
+
+  void _desafio8(valueA, valueB, valueC) {//resolução do desafio 8
 
     List<int> listNumber = [valueA, valueB, valueC];
 
@@ -71,7 +94,6 @@ class _MyHomePageState extends State<MyHomePage> {
       _result = list.toString() + descending.toString();
     });  
   }
-
   void _desafio15(int valueA){  // resolução do desafio 7
    List<int> numbers = [];
   for (int i = 0; i <= valueA; i++) {
@@ -81,8 +103,6 @@ class _MyHomePageState extends State<MyHomePage> {
     _result =  numbers.toString();
   });
   }
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 // _desafio2(2, 5, 10);
                 //_desafio4(-7);
                 //_desafio8(57,7,99);
-                _desafio15(3);
+                _desafio7(1871, 1417);
               },
             ),
             const SizedBox(height: 20),
