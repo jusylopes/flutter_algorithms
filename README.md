@@ -1,10 +1,15 @@
 # 📑 Flutter Algorithms
 ## Sobre o projeto
 
-Repositório de estudos de algoritmos em dart/Flutter. 
-<p align="left">
-  <img src="https://c.tenor.com/CtH3jzV7Sa0AAAAM/studying-school.gif" alt="Estudando na escola"  width="150">
+Repositório de estudos de algoritmos em dart/Flutter 🚀🚀🚀🚀🚀🚀. 
+
+## Screenshots
+<p>
+<img src="screenshots/Screenshot_1.png" width="20%">
+<img src="screenshots/Screenshot_2.png" width="20%">
+<img src="screenshots/Screenshot_3.png" width="20%">
 </p>
+
 
 ### Tecnologias utilizadas
 * Flutter
