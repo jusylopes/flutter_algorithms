@@ -61,6 +61,18 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _desafio10(String name, int idade) {
+    String result = '';
+    if (idade >= 18) {
+      result = 'é maior';
+    } else {
+      result = 'é menor';
+    }
+    setState(() {
+      _result = '$name você $result de idade';
+    });
+  }
+
   void _desafio14(List<int> numbers) {
     int menor = numbers[0];
     int maior = numbers[0];
@@ -218,10 +230,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 //_desafio4(-7);
                 _desafio13([7,9,13,21,16,18,22,15,17,32]);
                 //_desafio06(27);
-
+                //_desafio2(2, 5, 10);
+                _desafio10('Vinicius', 31);
+                // _desafio2(2, 5, 10);
+                //_desafio4(-7);
+                _desafio06(27);
                 //_desafio16('Arara');
                 //_desafio11(5);
-
                 //_desafio7(1871, 1417);
               },
             ),
