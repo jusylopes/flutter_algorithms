@@ -112,6 +112,24 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _desafio13(List<int> numeros) {//resolução desafio 13
+    
+    int contadorPar = 0; 
+    int contadorImpar = 0;
+
+    for (int number in numeros) { 
+      if(number % 2 == 0){
+        contadorPar++;
+      }else{
+        contadorImpar++;
+      }
+    }
+
+    setState(() {
+      _result = 'A lista de números é: $numeros e tem $contadorPar números pares e $contadorImpar números ímpares';
+    });
+  }
+    
   void _desafio06(int numero) {
     int antecessor = numero - 1;
     int sucessor = numero + 1;
@@ -208,16 +226,18 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ButtonCalculate(
               callChallenge: () {
+                // _desafio2(2, 5, 10);
+                //_desafio4(-7);
+                _desafio13([7,9,13,21,16,18,22,15,17,32]);
+                //_desafio06(27);
                 //_desafio2(2, 5, 10);
                 _desafio10('Vinicius', 31);
                 // _desafio2(2, 5, 10);
                 //_desafio4(-7);
                 _desafio06(27);
-
-                _desafio16('Arara');
-                _desafio11(5);
-
-                _desafio7(1871, 1417);
+                //_desafio16('Arara');
+                //_desafio11(5);
+                //_desafio7(1871, 1417);
               },
             ),
             const SizedBox(height: 20),
@@ -244,7 +264,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-}
+} 
 
 class ButtonCalculate extends StatelessWidget {
   final Function() callChallenge;
