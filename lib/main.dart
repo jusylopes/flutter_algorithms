@@ -79,6 +79,16 @@ class _MyHomePageState extends State<MyHomePage> {
     });  
   }
 
+  void _desafio15(int valueA){  // resolução do desafio 7
+   List<int> numbers = [];
+  for (int i = 0; i <= valueA; i++) {
+    numbers.add(i);
+  }
+  setState(() {
+    _result =  numbers.toString();
+  });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +114,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 // _desafio2(2, 5, 10);
                 //_desafio4(-7);
                 //_desafio8(57,7,99);
-                _desafio7(1871, 1417);
+                //_desafio7(1871, 1417);
+                _desafio15(10);
               },
             ),
             const SizedBox(height: 20),
