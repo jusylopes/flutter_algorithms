@@ -272,14 +272,22 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _desafio17(int number) {
     String result = '';
-    if (number > 1) {
-      result = 'é primo';
-      for (int i = 2; i <= number / 2; i++) {
-        if (number % i == 0) {
-          result = 'não é primo';
-          break;
-        }
+
+    if (number <= 1) {
+      result = 'não é primo';
+    }
+
+    for (int i = 2; i < number; i++) {
+      if (number % i == 0) {
+        result = 'não é primo';
+        break;
+      } else {
+        result = 'é primo';
       }
+
+      setState(() {
+        _result = 'O $number $result';
+      });
     }
   }
 
